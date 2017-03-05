@@ -108,8 +108,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </td>
   </tr>
   <tr>
-    <td>地址：</td>
+    <td>籍贯：</td>
     <td><input type="text" name="address" /></td>
+  </tr>
+  <tr>
+    <td>专业：</td>
+    <td><input type="text" name="specialty" /></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><input class="button" type="submit" value="添加"></td>

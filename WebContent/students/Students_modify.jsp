@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="../css/default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/default.css" />
 <style type="text/css">
 * {
     background: none repeat scroll 0 0 transparent;
@@ -16,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     padding: 0;
     vertical-align: baseline;
 	font-family:微软雅黑;
-	overflow:hidden;
 }
 #navi{
 	width:100%;
@@ -91,7 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <strong>修改学生资料</strong>
 <br>
 <br>
-
+<h4>基本信息：</h4>
+<br>
 <form name="modifyForm" action="<%=path%>/students/Students_save.action" method="post">
 <table width="400" >
   <tr>
@@ -123,13 +124,100 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       />
     </td>
   </tr>
+    <tr>
+    <td>年龄：</td>
+    <td><input type="text" name="sage" value='<s:property value="#session.modify_students.sage"/>'/></td>
+  </tr>
   <tr>
-    <td>地址：</td>
+    <td>籍贯：</td>
     <td><input type="text" name="address" value='<s:property value="#session.modify_students.address"/>'/></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><input class="button" type="submit" value="修改"></td>
+    <td>专业：</td>
+    <td><input type="text" name="specialty" value='<s:property value="#session.modify_students.specialty"/>'/></td>
   </tr>
+  <tr>
+  <tr>
+    <td>学历：</td>
+    <td>
+      <s:if test='%{#session.modify_students.education=="本科"}'>
+         <input type="radio" name="education" value="本科" checked="checked"/>本科
+         <input type="radio" name="education" value="专科"/>专科
+      </s:if>
+      <s:else>
+         <input type="radio" name="education" value="本科" />本科
+         <input type="radio" name="education" value="专科" checked="checked"/>专科
+      </s:else>
+      </td>
+  </tr>
+  <tr>
+    <td>求职类型：</td>
+    <td>
+      <s:if test='%{#session.modify_students.type=="实习"}'>
+         <input type="radio" name="type" value="兼职" checked="checked"/>兼职
+         <input type="radio" name="type" value="全职"/>全职
+         <input type="radio" name="type" value="实习"/>实习
+      </s:if>
+      <s:else>
+         <input type="radio" name="type" value="兼职" />兼职
+         <input type="radio" name="type" value="全职" checked="checked"/>全职
+         <input type="radio" name="type" value="实习"/>实习
+      </s:else>
+      </td>
+  </tr>
+  <tr>
+    <td>婚姻情况：</td>
+    <td>
+      <s:if test='%{#session.modify_students.marry=="未婚"}'>
+         <input type="radio" name="marry" value="未婚" checked="checked"/>未婚
+         <input type="radio" name="marry" value="已婚"/>已婚
+      </s:if>
+      <s:else>
+         <input type="radio" name="marry" value="未婚" />未婚
+         <input type="radio" name="marry" value="已婚" checked="checked"/>已婚
+      </s:else>
+      </td>
+  </tr>
+  <tr>
+    <td>毕业院校：</td>
+    <td><input type="text" name="school" value='<s:property value="#session.modify_students.school"/>'/></td>
+  </tr>
+  <tr>
+    <td>毕业年份：</td>
+    <td><input type="text" name="graduation" value='<s:property value="#session.modify_students.graduation"/>'/></td>
+  </tr>
+  <tr>
+    <td>证书：</td>
+    <td><input type="text" name="certificate" value='<s:property value="#session.modify_students.certificate"/>'/></td>
+  </tr>
+  <tr>
+    <td>驾照：</td>
+    <td><input type="text" name="driver" value='<s:property value="#session.modify_students.driver"/>'/></td>
+  </tr>
+  <tr>
+    <td>身高：</td>
+    <td><input type="text" name="height" value='<s:property value="#session.modify_students.height"/>'/></td>
+  </tr>
+</table>
+<br>
+<h4>联系方式：</h4>
+<br>
+<table width="400" >
+  <tr>
+    <td>手机：</td>
+    <td><input type="text" name="phone" value='<s:property value="#session.modify_students.phone"/>'/></td>
+  </tr>
+  <tr>
+    <td>QQ：</td>
+    <td><input type="text" name="qq" value='<s:property value="#session.modify_students.qq"/>'/></td>
+  </tr>
+  <tr>
+    <td>微信：</td>
+    <td><input type="text" name="vchat" value='<s:property value="#session.modify_students.vchat"/>'/></td>
+  </tr>    
+  <tr>
+    <td colspan="2" align="center"><input class="button" type="submit" value="修改"></td>
+  </tr>	
 </table>
 </form>
 

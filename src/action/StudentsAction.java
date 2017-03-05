@@ -45,6 +45,19 @@ public class StudentsAction extends SuperAction {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		s.setBirthday(sdf.parse(request.getParameter("birthday")));
 		s.setAddress(request.getParameter("address"));
+		s.setSpecialty(request.getParameter("specialty"));
+		s.setSage(request.getParameter("sage"));
+		s.setEducation(request.getParameter("education"));
+		s.setType(request.getParameter("type"));
+		s.setGraduation(request.getParameter("graduation"));
+		s.setCertificate(request.getParameter("certificate"));
+		s.setHeight(request.getParameter("height"));
+		s.setSchool(request.getParameter("school"));
+		s.setMarry(request.getParameter("marry"));
+		s.setDriver(request.getParameter("driver"));
+		s.setPhone(request.getParameter("phone"));
+		s.setQq(request.getParameter("qq"));
+		s.setVchat(request.getParameter("vchat"));
 		StudentsDAO sdao = new StudentsDAOImpl();
 		sdao.addStudents(s);
 		return "add_success";
@@ -62,6 +75,18 @@ public class StudentsAction extends SuperAction {
 		return "modify_success";
 	}
 	
+	//查看学生简历动作
+	public String resume()
+	{
+		//获得传递过来的学生编号
+		String sid = request.getParameter("sid");
+		StudentsDAO sdao = new StudentsDAOImpl();
+		Students s = sdao.queryStudentsBySid(sid);
+		//保存在会话中
+		session.setAttribute("resume_students", s);
+		return "resume_success";
+	}
+	
 	//保存修改后的学生资料动作
 	public String save() throws Exception
 	{
@@ -73,6 +98,19 @@ public class StudentsAction extends SuperAction {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		s.setBirthday(sdf.parse(request.getParameter("birthday")));
 		s.setAddress(request.getParameter("address"));
+		s.setSpecialty(request.getParameter("specialty"));
+		s.setSage(request.getParameter("sage"));
+		s.setEducation(request.getParameter("education"));
+		s.setType(request.getParameter("type"));
+		s.setGraduation(request.getParameter("graduation"));
+		s.setCertificate(request.getParameter("certificate"));
+		s.setHeight(request.getParameter("height"));
+		s.setSchool(request.getParameter("school"));
+		s.setMarry(request.getParameter("marry"));
+		s.setDriver(request.getParameter("driver"));
+		s.setPhone(request.getParameter("phone"));
+		s.setQq(request.getParameter("qq"));
+		s.setVchat(request.getParameter("vchat"));
 		StudentsDAO sdao = new StudentsDAOImpl();
 		sdao.updateStudents(s);
 		return "save_success";

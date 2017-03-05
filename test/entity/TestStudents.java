@@ -45,9 +45,9 @@ public class TestStudents {
 		//创建事务对象
 		Transaction tx = session.beginTransaction();
 		
-		Students s1 = new Students("S0000001","张三丰","男",new Date(),"武当山");
-		Students s2 = new Students("S0000002","郭靖","男",new Date(),"桃花岛");
-		Students s3 = new Students("S0000003","黄蓉","女",new Date(),"桃花岛");
+		Students s1 = new Students("S0000001","张三丰","男",new Date(),"武当山","软件工程");
+		Students s2 = new Students("S0000002","郭靖","男",new Date(),"桃花岛","软件工程");
+		Students s3 = new Students("S0000003","黄蓉","女",new Date(),"桃花岛","软件工程");
 		
 		session.save(s1);
 		session.save(s2);

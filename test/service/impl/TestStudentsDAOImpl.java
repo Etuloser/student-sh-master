@@ -37,6 +37,7 @@ public class TestStudentsDAOImpl {
 		s.setGender("男");
 		s.setBirthday(new Date());
 		s.setAddress("武当山");
+		s.setSpecialty("软件工程");
 		StudentsDAO sdao = new StudentsDAOImpl();
 		Assert.assertEquals(true, sdao.addStudents(s));
 	}
